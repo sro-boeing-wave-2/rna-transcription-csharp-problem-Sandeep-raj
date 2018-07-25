@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RNATranscriptionModule
 {
@@ -10,21 +11,14 @@ namespace RNATranscriptionModule
             //throw new NotImplementedException("You need to implement this function.");
             Dictionary<Char, Char> dict = new Dictionary<Char, Char>()
             {
-                { 'G','C' },
+                {'G','C' },
                 {'C','G' },
                 {'T','A' },
                 {'A','U' }
             };
 
-            string sequence = "";
+            return new string(nucleotide.Select(c => dict[c]).ToArray());
 
-            foreach(Char c in nucleotide)
-            {
-                sequence += dict[c];
-            }
-            
-
-            return sequence;
         }
     }
 }
